@@ -3,7 +3,7 @@ from pathlib import Path
 import shutil
 import sys
 
-# main_path = 'G:\\h_w1'
+
 
 CYRILLIC_SYMBOLS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ"
 TRANSLATION = (
@@ -33,6 +33,7 @@ def create_folders(folder_path, folder_names):
         if not (folder_path / folder).exists():
             (folder_path / folder).mkdir()
 
+
 # переміщення
 def move_file(target_folder:Path, file:Path):
     extension = file.suffix.replace('.', '')
@@ -45,11 +46,13 @@ def move_file(target_folder:Path, file:Path):
     file.replace(target_folder / normalize(file.name))
     return None
 
+
 # сортуєм файли 
 def sort_files(folder_path:Path):
     for file in folder_path.glob('**/*.*'):
         move_file(folder_path, file)
             
+
 # розпакоувка
 def unpack_archives(folder_path: Path):
     for file in folder_path.glob('*'):
@@ -59,6 +62,7 @@ def unpack_archives(folder_path: Path):
             file.unlink()  
         elif file.is_dir():
             unpack_archives(file)  
+
 
 #видаляємо пусті папки  
 def remove_empty_folders(folder_path: Path):
