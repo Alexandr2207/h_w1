@@ -18,6 +18,17 @@ for c, l in zip(CYRILLIC_SYMBOLS, TRANSLATION):
 def normalize(name: str):
     return name.translate(TRANS)
 
+
+if len(sys.argv) < 2:
+    print("Параметр не введено")
+    exit()
+
+folder_path = Path(sys.argv[1])
+
+if not folder_path.exists() or not folder_path.is_dir():
+    print("Введено невалідний шлях до теки")
+    exit()
+
 # ключі будуть назвою папок
 extensions = {
     'IMAGES': ['jpeg', 'png', 'jpg', 'svg'],
