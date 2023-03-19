@@ -22,8 +22,6 @@ def get_birthdays_per_week(users):
     end_period = next_week + timedelta(4)
     print(f"Дні народження в період з {start_period} по {end_period} : \n" )
 
-    
-    
     happy_users = [user for user in users if start_period <= prepare_birthday(user['birthday']) <= end_period]
     
     for user in happy_users:
@@ -39,8 +37,6 @@ def get_birthdays_per_week(users):
             print(f"Вітаємо іменинників в '{day}' >>> '{', '.join(users)}' \n")
 
     return birthdays
-
-
    
 if __name__ == '__main__':
     
